@@ -1,3 +1,49 @@
+  <title>test</title>
+  <style type="text/css">
+
+    html, body
+    {  
+      width: 100%;
+      height: 100%;      
+       margin: 0px;
+       background-color: blue;
+    }
+
+    #container
+    { 
+      width: 100%; 
+      height: 100%; 
+      background-color: aliceblue
+    }
+  </style>
+  <script type="text/javascript">
+    /*
+    * http://stackoverflow.com/a/7525760
+    * Método para mudar o site para fullscreen
+    * Pode não funcionar em versões antigas do IE (< 8)
+    */  
+    function requestFullScreen(element) {
+        // Supports most browsers and their versions.
+        var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+        if (requestMethod) { // Native full screen.
+            requestMethod.call(element);
+        } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+            var wscript = new ActiveXObject("WScript.Shell");
+            if (wscript !== null) {
+                wscript.SendKeys("{F11}");
+            }
+        }
+    }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <span>Div Teste pegando 100% da tela</span><br/>
+    <button onclick="requestFullScreen(document.body)">Full Screen</button>
+  </div>
+</body>
+</html>
 <!DOCTYPE html>
 <head>
 <meta charset="utf-8">
@@ -7,13 +53,6 @@
   type = "jpeg">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="shortcut icon" href="https://github.githubassets.com/favicons/favicon.png">
-      html, body
-    {  
-      width: 100%;
-      height: 100%;      
-       margin: 0px;
-       background-color: blue;
-    }
 <!-- CSS -->
 <link rel="stylesheet" href="/files/css/game.css" />
 </head>
