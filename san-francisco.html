@@ -18,6 +18,23 @@
 </a>
 <section class="content">
 <iframe sandbox="allow-scripts allow-same-origin" scrolling="no"  frameborder="0" src="https://szhong.4399.com/4399swf//upload_swf/ftp35/liuxinyu/20210409/jj12/index.html" style="border-radius: 1%; height: 720px; width: 1080px"></iframe>
+<template is="dom-bind">
+	<fullscreen-api id="fsapi" fullscreen-available="{{fullscreenAvailable}}"></fullscreen-api>
+
+	<button type="button" onclick="goFullscreen()" hidden$="[[!fullscreenAvailable]]">Display this page in full screen mode</button>
+
+	<div id="errorDiv" hidden$="[[fullscreenAvailable]]">
+		Your browser does not support the HTML5 full screen API... :(
+	</div>
+</template>
+
+<script>
+	function goFullscreen() {
+	  var fsapi = document.querySelector('#fsapi');
+	  fsapi.toggleFullscreen();
+	}
+</script>
+
 </div>
 </body>
 </html>
